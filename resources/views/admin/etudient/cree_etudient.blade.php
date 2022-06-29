@@ -1,71 +1,73 @@
 @extends('admin.dashboard')
-
+@section('title', 'Nouveau etudient')
 @section('content')
-
-<body class="bg-gray-700">
-    <h1 class="text-white text-2xl pb-4">Nouveau Etudient</h1>
-    <div class="w-full rounded-md bg-gray-800 p-4">
-        <form action="{{ route('add.student') }}" method="post">
+    <h1 class="text-2xl md:text-4xl font-black text-gray-900">Nouveau etudient</h1>
+    <div class="p-4 text-left bg-white shadow-md w-full rounded-md">
+        <form action="{{ route('add.student') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="flex flex-col gap-4">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="last-tname">Nom</label>
-                        <input id="last-name" name="last_name" type="text" placeholder="Nom" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+            <div class="w-full flex flex-col gap-4">
+                <div class="w-full flex flex-col md:flex-row gap-4">
+                    <div class="w-full flex flex-col gap-2">
+                        <label class="text-md flex text-gray-900" for="last-name">Nom</label>
+                        <input id="last-name" name="last_name" placeholder="Nom" type="text"
+                            class="h-12 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="first-name">Prenom</label>
-                        <input id="first-name" name="name" type="text" placeholder="Prenom" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="phone">Telephone</label>
-                        <input id="phone" type="tel" name="phone" placeholder="Telephone" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-                    </div>
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="Email" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+                    <div class="w-full flex flex-col gap-2">
+                        <label class="text-md flex text-gray-900" for="first-name">prenom</label>
+                        <input id="first-name" name="name" placeholder="prenom" type="text"
+                            class="h-12 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="address">Adresse</label>
-                        <textarea id="address" placeholder="Adresse" name="adress" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"></textarea>
+                <div class="w-full flex flex-col md:flex-row gap-4">
+                    <div class="w-full flex flex-col gap-2">
+                        <label class="text-md flex text-gray-900" for="phone">Telephone</label>
+                        <input id="phone" name="phone" placeholder="Telephone" type="tel"
+                            class="h-12 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                    </div>
+                    <div class="w-full flex flex-col gap-2">
+                        <label class="text-md flex text-gray-900" for="email">Email</label>
+                        <input id="email" name="email" placeholder="Email" type="email"
+                            class="h-12 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 flex flex-col gap-2">
-                        <label class="block text-white" for="password">Mot de passe</label>
-                        <div class="relative">
-                            <input id="password" name="password" type="text" readonly placeholder="Mot de passe" class="w-full bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-                            <span class="absolute flex items-center justify-center inset-y-0 right-0 pr-3">
-                                <button class="w-4 h-4 cursor-pointer rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" onclick="copy()" type="button">
-                                    <svg class="text-gray-400 w-4 h-4 group-hover:text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.77 122.88">
-                                        <g>
-                                            <path d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"></path>
-                                        </g>
-                                    </svg>
-                                </button>
-                            </span>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="text-md flex text-gray-900" for="address">Adresse</label>
+                    <textarea id="address" name="adress" placeholder="Adresse"
+                        class="h-24 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="text-md flex text-gray-900" for="password-input">Mot de passe</label>
+                    <div class="w-full relative">
+                        <input data-element-generate id="password-input" name="password" type="text"
+                            placeholder="Mot de passe" readonly
+                            class="h-12 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 border-none" />
+                        <div class="absolute top-0 right-4 h-full rounded-md py-2 flex gap-2 items-center">
+                            <button data-element-copy data-target="#password-input" type="button"
+                                class="flex items-center justify-between cursor-pointer p-1 rounded-md focus:outline-none focus:bg-gray-200 hover:bg-gray-200">
+                                <svg id="password-show" class="text-grey-900 w-5 h-5" fill="currentcolor"
+                                    viewBox="0 0 48 48">
+                                    <path
+                                        d="M16.2 38.35q-1.9 0-3.225-1.375Q11.65 35.6 11.65 33.8V6.7q0-1.8 1.325-3.175Q14.3 2.15 16.2 2.15h21.05q1.9 0 3.25 1.375T41.85 6.7v27.1q0 1.8-1.35 3.175-1.35 1.375-3.25 1.375Zm-7.4 7.4q-1.95 0-3.275-1.375T4.2 41.2V11.75h4.6V41.2h22.95v4.55Z" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end">
-                    <button type="submit" class="px-6 py-2 text-white w-64 bg-blue-600 rounded-md hover:bg-blue-900">Creer</button>
+                <div class="w-full flex flex-col md:flex-row justify-end items-center gap-2">
+                    <button type="submit"
+                        class="h-12 px-6 py-2 text-white order-1 w-full min-w-max md:w-48 rounded-md flex gap-2 items-center justify-center focus:outline-none bg-blue-500 hover:bg-blue-300 focus:bg-blue-300">
+                        <svg class="text-grey-900 w-5 h-5" fill="currentcolor" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 48 48">
+                            <path
+                                d="M43.1 13.4V38.5Q43.1 40.35 41.75 41.7Q40.4 43.05 38.5 43.05H9.5Q7.65 43.05 6.3 41.7Q4.95 40.35 4.95 38.5V9.5Q4.95 7.6 6.3 6.25Q7.65 4.9 9.5 4.9H34.6ZM24 35.2Q26.1 35.2 27.6 33.725Q29.1 32.25 29.1 30.1Q29.1 28 27.625 26.5Q26.15 25 24 25Q21.9 25 20.4 26.475Q18.9 27.95 18.9 30.1Q18.9 32.2 20.375 33.7Q21.85 35.2 24 35.2ZM12.2 19.15H29.9V12.2H12.2Z" />
+                        </svg>
+                        <span>Enregistrer</span>
+                    </button>
                 </div>
             </div>
         </form>
     </div>
     <script defer>
-        function copy() {
-            var el = document.querySelector("#password");
-            el.select();
-            document.execCommand("copy");
-        }
-
-        const pass = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).slice(10, 20);
-        document.querySelector("#password").value = pass;
+        Starter.add(copyElementText, generatePassword);
     </script>
-</body>
 @endsection

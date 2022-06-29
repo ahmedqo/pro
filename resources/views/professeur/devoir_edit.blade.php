@@ -43,10 +43,9 @@
                 </div>
                 <div class="w-full flex flex-col gap-2">
                     <label class="text-md flex text-gray-900" for="module">Module</label>
-                    <select data-custom-select id="mpdule" name="module">
+                    <select data-custom-select id="module" name="module">
                         <option disabled>Module</option>
                         @foreach ($data as $row)
-                            {{ $row->id }} {{ $devoirs->module }}
                             <option value="{{ $row->id }}" {{ $row->id == $devoirs->id_module ? 'selected' : '' }}>
                                 {{ $row->nom_module }}
                             </option>

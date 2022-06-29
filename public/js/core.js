@@ -395,7 +395,7 @@ function copyElementText() {
         const selector = trigger.dataset.target;
         if (!selector) return;
 
-        const target = document.querySelectorAll(selector.trim());
+        const target = document.querySelector(selector.trim());
         if (!target) return;
 
         trigger.addEventListener("click", () => {
@@ -471,7 +471,7 @@ const Toaster = {
         }
         if (el = document.querySelector(".toaster-element")) el.remove();
         var div = document.createElement("div")
-        div.className = "toaster-element w-80 text-white text-md p-4 hover:opacity-100 fixed top-4 right-4 rounded-md";
+        div.className = "toaster-element w-80 text-white text-md p-4 hover:opacity-100 fixed bottom-4 right-4 rounded-md";
         div.style.background = type
         div.innerText = message;
         document.body.append(div)
