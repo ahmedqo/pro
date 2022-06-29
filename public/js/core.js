@@ -459,6 +459,7 @@ const Toaster = {
                     animation: slide 250ms ease-in-out forwards;
                     z-index: 100;
                     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+                    max-width: calc(100% - 32px)
                 }
                 @keyframes slide {
                     0% { transform: traslateX(140%) }
@@ -471,7 +472,7 @@ const Toaster = {
         }
         if (el = document.querySelector(".toaster-element")) el.remove();
         var div = document.createElement("div")
-        div.className = "toaster-element w-80 text-white text-md p-4 hover:opacity-100 fixed bottom-4 right-4 rounded-md";
+        div.className = "toaster-element w-full md:w-1/3 text-white text-md p-4 hover:opacity-100 fixed bottom-4 right-4 rounded-md";
         div.style.background = type
         div.innerText = message;
         document.body.append(div)

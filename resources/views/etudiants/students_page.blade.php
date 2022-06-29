@@ -38,14 +38,15 @@
         const bullet = document.querySelector("#not-bullet"),
             wrap = document.querySelector("#not-wrap");
 
-        async function getNotifications() {
+        async function getNotifications(n = 5) {
             const req = await fetch("/notification/view/all"),
                 res = await (await req.json()).data;
             if (res.length === 0) {
                 wrap.innerHTML = `<div class="rounded-md bg-gray-50 p-2 text-center">Aucun nouveau messages</div>`
                 bullet.remove();
             } else {
-                const rows = res.map(data => `<div class="rounded-md bg-gray-50 p-2">${data.notification_msg}</div>`)
+                const rows = res.slice(0, n).map(data =>
+                        `<div class="rounded-md bg-gray-50 p-2">${data.notification_msg}</div>`)
                     .join("");
                 wrap.innerHTML = rows;
             }

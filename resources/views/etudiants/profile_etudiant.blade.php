@@ -62,8 +62,8 @@
                 </div>
                 <div class="w-full flex flex-col gap-2">
                     <label class="text-md flex text-gray-900" for="address">Adresse</label>
-                    <textarea id="address" name="adress" value="{{ $user_info->adress }}" placeholder="Adresse"
-                        class="h-24 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                    <textarea id="address" name="adress" placeholder="Adresse"
+                        class="h-24 text-md w-full bg-gray-50 text-gray-900 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">{{ $user_info->adress }}</textarea>
                 </div>
                 <div class="w-full flex flex-col md:flex-row justify-end items-center gap-2">
                     <button type="submit"
