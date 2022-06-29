@@ -24,7 +24,7 @@
 
 <body class="bg-gray-200">
     @include('etudiants.commun.header')
-    <main style="height: calc(100vh - 72px)">
+    <main>
         <section class="container mx-auto py-8 md:py-16 px-4 md:px-0 flex flex-col gap-10">
             @yield('content')
         </section>
