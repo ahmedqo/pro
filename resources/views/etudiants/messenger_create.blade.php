@@ -21,7 +21,8 @@
                             <option selected disabled>Destinataire</option>
                             @if ($users->count() > 0)
                                 @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{!! $user->last_name !!} {!! $user->name !!}
+                                    <option value="{{ $user->id }}" @if (request()->get('user') && request()->get('user') == $user->id) selected @endif>
+                                        {!! $user->last_name !!} {!! $user->name !!}
                                     </option>
                                 @endforeach
                             @endif

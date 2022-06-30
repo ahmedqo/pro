@@ -11,29 +11,14 @@
             </svg>
         </a>
     </div>
+    {{-- $0.selectedIndex = [...$0].indexOf([...$0].find(el => el.value === "11")) --}}
     <div class="w-full flex gap-4 flex-wrap items-start">
         <div class="overflow-hidden w-full md:w-56 order-1">
             <div class="bg-white rounded-md shadow-md flex flex-col gap-2 p-4">
-                <div class="flex gap-2 items-center">
+                <a href="{{ route('send.messsage', ['user' => 1]) }}" class="flex gap-2 items-center">
                     <img src="" class="w-8 h-8 rounded-full pointer-events-none object-cover">
                     <p class="text-gray-900">Qoreichi Ahmed</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                    <img src="" class="w-8 h-8 rounded-full pointer-events-none object-cover">
-                    <p class="text-gray-900">Qoreichi Ahmed</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                    <img src="" class="w-8 h-8 rounded-full pointer-events-none object-cover">
-                    <p class="text-gray-900">Qoreichi Ahmed</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                    <img src="" class="w-8 h-8 rounded-full pointer-events-none object-cover">
-                    <p class="text-gray-900">Qoreichi Ahmed</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                    <img src="" class="w-8 h-8 rounded-full pointer-events-none object-cover">
-                    <p class="text-gray-900">Qoreichi Ahmed</p>
-                </div>
+                </a>
             </div>
         </div>
         <div class="p-4 text-left w-full bg-white shadow-md rounded-md flex-1 md:order-1">
